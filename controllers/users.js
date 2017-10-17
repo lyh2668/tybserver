@@ -1,10 +1,15 @@
 class Users {
   constructor () {
-    this.login = this.login.bind(this)
+    this.getUserinfo = this.getUserinfo.bind(this)
   }
-  async login (req, res, next) {
+  async getUserinfo (req, res, next) {
     return res.json({
-      errcode: 'msg'
+      errcode: 0,
+      errmsg: 'ok',
+      data: {
+        name: 'lyh2668',
+        tel: '13512341234'
+      }
     })
   }
 }

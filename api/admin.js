@@ -1,10 +1,10 @@
 import express from 'express'
-import Users from '../controllers/users'
+import Admin from '../controllers/admin'
 
 const router = express.Router()
 
-router.route('/')
-  .get(Users.getUserinfo)
+router.route('/login')
+  .get(Admin.login)
   .post((req, res, next) => {
 
   })

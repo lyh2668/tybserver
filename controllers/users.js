@@ -4,9 +4,9 @@ class Users {
   }
   async login (req, res, next) {
     return res.json({
-      errcode: msg
+      errcode: 'msg'
     })
-	}
+  }
 }
 
 export default new Users()

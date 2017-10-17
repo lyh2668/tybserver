@@ -1,8 +1,9 @@
-const express = require('express')
-const router = express.Router()
-const Users = require('../controllers/users')
+import express from 'express'
+import Users from '../controllers/users'
 
-router.get('/')
+const router = express.Router()
+
+router.route('/')
   .get(Users.login)
   .post((req, res, next) => {
 

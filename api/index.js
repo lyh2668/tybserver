@@ -1,3 +1,5 @@
+import users from './users'
+
 export default app => {
-  app.use('/users', require('./users'))
+  app.use('/users', users)
 }

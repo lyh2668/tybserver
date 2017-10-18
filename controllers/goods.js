@@ -131,40 +131,86 @@ class Goods extends Base {
   constructor () {
     super()
     this.getList = this.getList.bind(this)
+    this.getDetail = this.getDetail.bind(this)
   }
   async getList (req, res, next) {
     let params = req.query
     let type = parseInt(params.type)
+    let resJson = {}
 
     switch (type) {
       // 0 表示渔船
       case 0: {
-        return this.getShipsList(params, res)
+        resJson = this.getShipsList(params, res)
+        break
       }
       // 1 表示渔货
       case 1: {
-        return this.getFishList(params, res)
+        resJson = this.getFishList(params, res)
+        break
       }
       default: {
-        return res.json(this.baseResponse(-1, 'type is error.'))
+        resJson = this.baseResponse(-1, 'type is error.')
       }
     }
+
+    return res.json(resJson)
   }
 
-  getShipsList (params, res) {
-    return res.json({
+  async getDetail (req, res, next) {
+    let params = req.query
+    let type = parseInt(params.type)
+    let id = parseInt(params.id)
+    let resJson = {}
+
+    switch (type) {
+      case 0: {
+        resJson = this.getShipDetail(params, id)
+        break
+      }
+      case 1: {
+        resJson = this.getFishDetail(params, id)
+        break
+      }
+      default: {
+        resJson = this.baseResponse(-1, 'type is error.')
+        break
+      }
+    }
+
+    return res.json(resJson)
+  }
+
+  getShipsList (params) {
+    return {
       errcode: 0,
       errmsg: 'get shoplist success.',
       data: shipListData
-    })
+    }
   }
 
-  getFishList (params, res) {
-    return res.json({
+  getFishList (params) {
+    return {
       errcode: 0,
       errmsg: 'get fishlist success.',
       data: fishListData
-    })
+    }
+  }
+
+  getShipDetail (params, id) {
+    return {
+      errcode: 0,
+      errmsg: 'get ship detail success.',
+      data: fishListData[id]
+    }
+  }
+
+  getFishDetail (params, id) {
+    return {
+      errcode: 0,
+      errmsg: 'get ship detail success.',
+      data: fishListData[id]
+    }
   }
 
 }

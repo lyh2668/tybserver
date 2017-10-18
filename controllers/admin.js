@@ -23,8 +23,8 @@ class Admin extends Base {
     })
   }
   async logout (req, res, next) {
-    console.log(this.baseResponse)
-    return res.json(this.baseResponse)
+    console.log(this.baseResponse())
+    return res.json(this.baseResponse())
   }
 }
 

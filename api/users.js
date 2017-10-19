@@ -5,8 +5,8 @@ const router = express.Router()
 
 router.route('/')
   .get(Users.getUserinfo)
-  .post((req, res, next) => {
 
-  })
+router.route('/fav')
+  .get(Users.getUserFav)
 
 export default router

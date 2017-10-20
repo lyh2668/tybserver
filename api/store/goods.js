@@ -1,5 +1,5 @@
 import express from 'express'
-import Goods from '../controllers/goods'
+import Goods from '../../controllers/store/goods'
 
 const router = express.Router()
 

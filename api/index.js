@@ -1,7 +1,8 @@
 import express from 'express'
 import users from './users'
 import admin from './admin'
-import goods from './goods'
+import goods from './store/goods'
+import shop from './store/shop'
 const router = express()
 
 export default app => {
@@ -15,5 +16,6 @@ export default app => {
 
   router.use('/users', users)
   router.use('/admin', admin)
-  router.use('/goods', goods)
+  router.use('/store/goods', goods)
+  router.use('/store/shop', shop)
 }
